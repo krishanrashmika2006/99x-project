@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequential Popups</title>
+    <style>
+        /* Style for the popups */
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+
+
+        <!-- button -->
+        <button type="submit" id="button" class="btn" onclick="goTo_nameScreen()">Submit</button>
+        <!-- button -->
+
+        <!-- frist popup -->
+        <div id="popup1" class="popup">
+            <h2>Enter Your Name</h2>
+            <p>Example:- Krishan Rashmika Didulantha</p>
+            <input type="text" id="myInput" placeholder="Enter your name..">
+            <button onclick="sumbit1()">Next</button>
+
+            <button type="submit" onclick="SkipeToEmail()">Skipe</button>
+        </div>
+
+
+        <!-- second popup -->
+        <div id="popup2" class="popup">
+            <h2>Enter Your Email</h2>
+            <p>Example:- Krishanrashmika533@gmail.com</p>
+            <input type="text" id="my2ndinput" placeholder="Enter your email..">
+            <button onclick="sumbit2()">Next</button>
+            <button type="submit" onclick="SkipeToNumber()">Skipe</button>
+
+        </div>
+
+        <div id="popup3" class="popup">
+            <h2>Enter Your TelePhone Number</h2>
+            <p>Example:- 94703447368</p>
+            <input type="numerb" id="my3rdinput" placeholder="Enter your TelePhone Number">
+            <button onclick="numberSumbit()">Next</button>
+            <button type="submit" onclick="openPopup4()">Skipe</button>
+        </div>
+
+        <div id="popup4" class="popup">
+            <h2>Enter Your Address</h2>
+            <p>Example:- Katuwana/Middeniya</p>
+            <input type="text" id="my4thinput" placeholder="Enter your address..">
+
+            <button onclick="addresssumbit()">Next</button>
+            <button type="submit" onclick="openPopup5()">Skipe</button>
+       
+        </div>
+
+        <div id="popup5" class="popup">
+            <h2>Enter Your Country</h2>
+            <p>Example:- Sri Lanka</p>
+            <input type="text" id="my5thinput" placeholder="Enter your Country..">
+            <button onclick="countrysumbit()">Finish</button>
+          
+            
+        </div>
+
+    </div>
+    <div class="div">
+        <div id="output-Name"></div>
+        <div id="output-Email"></div>
+        <div id="output-Number"></div>
+        <div id="output-address"></div>
+        <div id="output-country"></div>
+    </div>
+
+
+
+
+
+
+
+
+    <script>
+        let popup1 = document.getElementById("popup1");
+        let popup2 = document.getElementById("popup2");
+        let popup3 = document.getElementById("popup3");
+        let popup4 = document.getElementById("popup4");
+        let popup5 = document.getElementById("popup5");
+        let hidebtn = document.getElementById("button");
+
+        // entr page of"NAME"
+        function goTo_nameScreen() {
+
+            popup1.classList.add("open-Popup");
+            hidebtn.classList.add("hide-btn")
+        }
+
+
+
+
+        function sumbit1() {
+
+            var inputValue = document.getElementById("myInput").value;
+
+            if (inputValue.trim() === "") {
+                alert("Please enter something!");
+                document.getElementById("output-Name").innerText = "Please enter something!";
+            } else {
+                alert("You entered: " + inputValue);
+                document.getElementById("output-Name").innerText = "NAME:- " + inputValue;
+                popup2.classList.add("open-Popup");
+            }
+        }
+
+        function SkipeToEmail() {
+            popup2.classList.add("open-Popup");
+
+
+        }
+        // entr page of"NAME"
+
+
+
+
+
+        // enter page of email
+        function sumbit2() {
+
+            var inputemail = document.getElementById("my2ndinput").value;
+
+            if (inputemail.trim() === "") {
+                alert("Please Enter Your Email");
+                document.getElementById("output-Email").innerText = "Please Enter Your Email";
+            } else {
+                alert("Your Email: " + inputemail);
+                document.getElementById("output-Email").innerText = "EMAIL:- " + inputemail;
+                popup3.classList.add("open-Popup");
+            }
+        }
+        function SkipeToNumber() {
+            popup3.classList.add("open-Popup");
+        }
+
+        // enter page of phone number
+
+
+        function numberSumbit() {
+
+            var inputNumber = document.getElementById("my3rdinput").value;
+
+            if (inputNumber.trim() === "") {
+                alert("Please Enter Your Number");
+                document.getElementById("output-Number").innerText = "Please Enter Your Number";
+            } else {
+                alert("Your Number: " + inputNumber);
+                document.getElementById("output-Number").innerText = "Tele:- " + inputNumber;
+                popup4.classList.add("open-Popup");
+            }
+        }
+        function openPopup4() {
+            popup4.classList.add("open-Popup");
+        }
+
+
+
+        function addresssumbit() {
+            var inputaddress = document.getElementById("my4thinput").value;
+
+            if (inputaddress.trim() === "") {
+                alert("Please Enter Your Address");
+                document.getElementById("output-address").innerText = "Please Enter Your Address";
+
+            } else {
+                alert("Your Address: " + inputaddress);
+                document.getElementById("output-address").innerText = "Address:- " + inputaddress;
+                popup5.classList.add("open-Popup")
+            }
+        }
+        function openPopup5() {
+            
+            popup5.classList.add("open-popup")
+        }
+
+
+        function countrysumbit() {
+            var inputcountry = document.getElementById("my5thinput").value;
+
+            if (inputcountry.trim() === "") {
+                alert("please enter your Country")
+                document.getElementById("output-country").innerText = "Please Enter your Country!!"
+
+            } else {
+                alert("Your Country" + inputcountry);
+                document.getElementById("output-country").innerText = "country: " + inputcountry;
+                popup5.classList.remove("open-Popup");
+                popup4.classList.remove("open-Popup");
+                popup3.classList.remove("open-Popup");
+                popup2.classList.remove("open-Popup");
+                popup1.classList.remove("open-Popup");
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
